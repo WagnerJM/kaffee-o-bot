@@ -1,0 +1,15 @@
+flask
+flask-restful
+requests
+flask-script
+flask-cors
+flask-sqlalchemy
+flask-migrate
+psycopg2-binary
+celery[redis]
+celery
+bcrypt
+redis
+Flask-JWT-Extended
+flask-socketio
+eventlet
