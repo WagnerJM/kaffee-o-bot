@@ -6,6 +6,9 @@
 - add Container for serial connection
 - Durchreichen des USB Ports
 
+### app
+- RechnungApi überlegen
+
 ## Notizen
 
 https://www.revsys.com/tidbits/celery-and-django-and-docker-oh-my/

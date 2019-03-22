@@ -3,6 +3,7 @@ from datetime import datetime
 from app.database import BaseMixin, db
 
 
+
 class User(BaseMixin, db.Model):
 
     __tablename__ = 'users'
@@ -21,7 +22,7 @@ class User(BaseMixin, db.Model):
     coffee_count = db.Column(db.Integer, default=0)
 
     coffee_hist = db.relationship('CoffeeHistory', backref='users', lazy=True)
-    #rechnungen = db.relationship('Rechnung', backref='User', lazy=True)
+    rechnungen = db.relationship('Rechnung', backref='users', lazy=True)
 
     def __init__(self, username, password, email):
         self.username = username
