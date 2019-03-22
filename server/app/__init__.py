@@ -8,6 +8,7 @@ from flask_migrate import Migrate
 from app.database import db
 
 from app.config import app_config
+from app.messageBus import socketio
 
 
 
@@ -94,5 +95,7 @@ def create_app():
 	#####
 	db.init_app(app)
 	migrate = Migrate(app, db)
+
+	socketio.init_app()
 
 	return app
