@@ -76,17 +76,16 @@ def create_app():
     	}), 401
 
 	### import area for resources
-	from app.api.user.resources import UserLoginApi, UserLogoutApi, UserRegisterApi, UserApi
+	from app.api.user.resources import UserLoginApi, UserLogoutApi, UserRegisterApi, UserApi, AdminAllUserApi, AdminUserApi, AdminSysSettingApi, AdminInvoiceApi
 	api.add_resource(UserRegisterApi, "/api/v1/register")
 	api.add_resource(UserLoginApi, "/api/v1/login")
 	api.add_resource(UserLogoutApi, "/api/v1/logout")
 	api.add_resource(UserApi, "/api/v1/user")
 
-	#from app.api.resources.adminApi import AdminAllUserApi, AdminUserApi, AdminSysSettingApi, AdminInvoiceApi
-	#api.add_resource(AdminAllUserApi, "/api/v1/user")
-	#api.add_resource(AdminUserApi, "/api/v1/user")
-	#api.add_resource(AdminSysSettingApi, "/api/v1/systemSetting")
-	#api.add_resource(AdminInvoiceApi, "/api/v1/invoice")
+	api.add_resource(AdminAllUserApi, "/api/v1/user")
+	api.add_resource(AdminUserApi, "/api/v1/user")
+	api.add_resource(AdminSysSettingApi, "/api/v1/systemSetting")
+	api.add_resource(AdminInvoiceApi, "/api/v1/invoice")
 	# TODO: Resource für bezahlte Rechnung
 
 
