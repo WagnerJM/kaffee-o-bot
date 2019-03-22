@@ -1,4 +1,5 @@
 import bcrypt
+from datetime import datetime
 from app.database import BaseMixin, db
 
 
@@ -19,7 +20,7 @@ class User(BaseMixin, db.Model):
 
     coffee_count = db.Column(db.Integer, default=0)
 
-    #coffee_hist = db.relationship('CoffeeHistory', backref='User', lazy=True)
+    coffee_hist = db.relationship('CoffeeHistory', backref='users', lazy=True)
     #rechnungen = db.relationship('Rechnung', backref='User', lazy=True)
 
     def __init__(self, username, password, email):
@@ -49,4 +50,27 @@ class User(BaseMixin, db.Model):
             "is_admin": self.is_admin,
             "coffee_count": self.coffee_count,
 
+        }
+
+
+
+class CoffeeHistory(BaseMixin, db.Model):
+    __tablename__ = 'coffeeHistory'
+
+    coffeeHistID = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime, default=datetime.now())
+    coffee_count = db.Column(db.Integer)
+    amount = db.Column(db.Float)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.userID'))
+
+    def __init__(self, coffee_count, amount):
+        self.coffee_count = coffee_count
+        self.amount = amount
+
+    def json(self):
+        return {
+            "id": str(self.id),
+            "date": self.date.strftime('%a, %d, %B, %Y'),
+            "coffee_count": self.coffee_count,
+            "amount": self.amount
         }

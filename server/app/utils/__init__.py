@@ -1,12 +1,12 @@
 from uuid import UUID
-#from app.api.models.user import User
-#from app.api.models.coffee_hist import CoffeeHistory
 from datetime import datetime
+
+from app.api.user.models import CoffeeHistory
 
 def str2uuid(string):
     return UUID(string)
 
-"""def coffee2history(user, betrag):
+def coffee2history(user, betrag):
 
     user_hist = user.coffee_hist
 
@@ -20,4 +20,3 @@ def str2uuid(string):
     except:
         print("Es ist ein Fehler festgestellt worden.")
         return False
-"""

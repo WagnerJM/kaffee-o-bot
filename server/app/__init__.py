@@ -18,6 +18,7 @@ def create_app():
 	config_name = os.getenv("APP_SETTINGS")
 
 	app.config.from_object(app_config[config_name])
+	app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 	jwt = JWTManager(app)
 
@@ -74,7 +75,7 @@ def create_app():
     	}), 401
 
 	### import area for resources
-	from app.api.resources.userApi import UserLoginApi, UserLogoutApi, UserRegisterApi, UserApi
+	from app.api.user.resources import UserLoginApi, UserLogoutApi, UserRegisterApi, UserApi
 	api.add_resource(UserRegisterApi, "/api/v1/register")
 	api.add_resource(UserLoginApi, "/api/v1/login")
 	api.add_resource(UserLogoutApi, "/api/v1/logout")

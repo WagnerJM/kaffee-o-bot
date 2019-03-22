@@ -1,8 +1,8 @@
 import smtplib
 from email.message import EmailMessage
 from app.utils import coffee2history
-from app.api.models.user import User
-from app.api.models.system import SystemSettting
+from app.api.user.models import User, CoffeeHistory
+from app.api.system.models import SystemSetting
 
 from celery import shared_task
 
